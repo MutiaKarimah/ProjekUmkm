@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="col-md-4">
                 <a href="{{ url('/welcome') }}" class="site-logo">
-                    <img class="hidden-md-down" src="{{url('public')}}/img/umkm.jpg" alt="">
+                    <img class="hidden-md-down" src="{{url('public')}}/img/Umkm.jpg" alt="">
                 </a>            
             </div>
             <div class="col-md-4">
@@ -28,55 +28,59 @@
                                             @csrf
                                                 <div class="row justify-content-center col-md-12">
                                                     <div class="row col-md-12">
-                                                        <div class="dropdown-menu-notif-list">
-                                                            <div class="dropdown-menu-notif-item">
-                                                                <div class="form-group row">
-                                                                {{-- <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label> --}}
-                                                                    <div>
-                                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                        <div class="dropdown-menu-notif-item">
+                                                            <div class="row">
+                                                                {{-- <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label> --}}
+                                                                <div>
+                                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="email">
                                                                         @error('email')
                                                                             <span class="invalid-feedback" role="alert">
                                                                                 <strong>{{ $message }}</strong>
                                                                             </span>
                                                                         @enderror
                                                                     </div>
-                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="dropdown-menu-notif-item" style="background-color: #3caea3;">
-                                                            <div class="form-group row">
-                                                                {{-- <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label> --}}
-                                                                <div>
-                                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                        <div class="dropdown-menu-notif-list">
+                                                            <div class="dropdown-menu-notif-item">
+                                                                <div class="row">
+                                                                {{-- <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label> --}}
+                                                                    <div>
+                                                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"placeholder="password">
 
-                                                                    @error('password')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
+                                                                        @error('password')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="dropdown-menu-notif-more">
+                                                                <div class="form-group row mb-0">
+                                                                    <div>
+                                                                        <button type="submit" class="btn btn-inline btn-danger col-md-12 offset-md-2" style="width: 80%;">
+                                                                            {{ __('LOGIN') }}
+                                                                        </button>
+                                                                        <div class="row">
+                                                                            @if (Route::has('password.request'))
+                                                                                <a class="" href="{{ route('password.request') }}" style="color: red; text-align: right;">
+                                                                                    {{ __('Lupa Password?') }}
+                                                                                </a>
+                                                                            @endif
+                                                                        
+                                                                            @if (Route::has('register'))
+                                                                                <a href="{{ route('register') }}" style="color: red;">Daftar</a>
+                                                                            @endif
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="dropdown-menu-notif-more">
-                                                        <div class="form-group row mb-0">
-                                                            <div>
-                                                                <button type="submit" class="btn btn-inline btn-danger" style="width: 72%;">
-                                                                    {{ __('LOGIN') }}
-                                                                </button>
-                                                                {{-- @if (Route::has('password.request'))
-                                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                                        {{ __('Forgot Your Password?') }}
-                                                                    </a>
-                                                                @endif --}}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dropdown-menu-notif-item">
-                                                        @if (Route::has('register'))
-                                                            <a href="{{ route('register') }}">Register</a>
-                                                        @endif
-                                                    </div>
+                                                    
+                                                    
                                                 </div>
                                             </form>
                                         </div> 
