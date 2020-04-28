@@ -17,7 +17,11 @@
                     PETA
                 </div>
                 <div class="col-md-10 card-block">
-                    
+                     <a href="{{url('/tambah')}}">
+                            <button type="button" class="btn btn-rounded btn-success">
+                                <i class="fa fa-plus"></i> Daftarkan UMKM-mu!
+                            </button>
+                    </a>      
                 </div>
             </div>
         </div>
