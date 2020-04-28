@@ -262,7 +262,11 @@
             </div>
             <left>
                 <button type="submit" class="btn btn-rounded btn-primary float-middle">Konfirmasi</button>
-                <button type="cancel" class="btn btn-rounded btn-default float-middle">Kembali</button>
+                <button type="cancel" class="btn btn-rounded btn-default float-middle">
+                    <a href="{{url('/welcome')}}" type="button">
+                        Kembali
+                    </a>
+                </button>
             </left>          
         </div>
     </div>
