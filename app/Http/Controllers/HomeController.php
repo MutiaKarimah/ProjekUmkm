@@ -30,6 +30,10 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
+    public function coba()
+    {
+        return view('coba');
+    }
     public function tambah()
     {
         $res['umkm'] = DB::table('umkm')->get();
