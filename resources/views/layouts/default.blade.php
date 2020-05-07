@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{url('public/')}}/css/kz-custom.css">
     @yield('styles')
 </head>
-<body class="with-side-menu">
+<body class="menu">
 	@include('layouts.header')
 	@include('layouts.sidebar')
 	
