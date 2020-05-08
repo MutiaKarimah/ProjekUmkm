@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
+-- Generation Time: May 07, 2020 at 05:04 PM
+=======
 -- Generation Time: Apr 22, 2020 at 04:09 PM
+>>>>>>> 9751d4f511bea4e2b272baf1cad5a66f94175725
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -37,6 +41,29 @@ CREATE TABLE `migrations` (
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
+-- Table structure for table `umkm`
+--
+
+CREATE TABLE `umkm` (
+  `nama_lengkap` varchar(256) NOT NULL,
+  `email` varchar(256) NOT NULL,
+  `no_telp` int(100) NOT NULL,
+  `nama_umkm` varchar(256) NOT NULL,
+  `jenis_umkm` varchar(256) NOT NULL,
+  `desc` varchar(256) NOT NULL,
+  `provinsi` varchar(256) NOT NULL,
+  `kota` varchar(256) NOT NULL,
+  `kec` varchar(256) NOT NULL,
+  `kel` varchar(256) NOT NULL,
+  `detail` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+=======
+>>>>>>> 9751d4f511bea4e2b272baf1cad5a66f94175725
 -- Table structure for table `users`
 --
 
