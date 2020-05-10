@@ -179,6 +179,20 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-6 form-control-label m-t-1">
+                            Peta
+                        </label>
+                        <div class="col-sm-12">
+                            <div id="map" style="width:100%;height:380px;"></div>
+                                <input type="text" id="lat" name="lat" value="">
+                                <input type="text" id="lng" name="lng" value="">
+                        </div>
+                    </div>
+                </div>
             
             <div class="">
                 <div class="col-md-12">
@@ -271,4 +285,50 @@
         </div>
     </div>
 </form>   
+@endsection
+
+@section('scripts')
+<script>
+
+var marker;
+function taruhMarker(peta, posisiTitik){
+    
+    if( marker ){
+      // pindahkan marker
+      marker.setPosition(posisiTitik);
+    } else {
+      // buat marker baru
+      marker = new google.maps.Marker({
+        position: posisiTitik,
+        map: peta
+      });
+    }
+
+    // isi nilai koordinat ke form
+    document.getElementById("lat").value = posisiTitik.lat();
+    document.getElementById("lng").value = posisiTitik.lng();
+    
+}
+// Initialize and add the map
+function initMap() {
+  var propertiPeta = {
+    center:new google.maps.LatLng(-8.5830695,116.3202515),
+    zoom:9,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  
+  var peta = new google.maps.Map(document.getElementById("map"), propertiPeta);
+  
+  // even listner ketika peta diklik
+  google.maps.event.addListener(peta, 'click', function(event) {
+    taruhMarker(this, event.latLng);
+  });
+}
+
+// event jendela di-load  
+google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ36XIfGlY_Qu-K4pH3exo1E1ZvCQTZNM&callback=initMap">
+    </script>
 @endsection

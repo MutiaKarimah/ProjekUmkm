@@ -54,6 +54,8 @@ class HomeController extends Controller
             'kec' => $request->kec,
             'kel' => $request->kel,
             'detail' => $request->detail,
+            'latitude' => $request->lat,
+            'longitude' => $requet->lng
         ]);
         return redirect('/tambah');
 
