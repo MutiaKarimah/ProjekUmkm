@@ -57,7 +57,33 @@ class HomeController extends Controller
             'latitude' => $request->lat,
             'longitude' => $requet->lng
         ]);
-        return redirect('/tambah');
+        return redirect('/welcome');
 
+    }
+    public function edit()
+    {
+
+        $res['data'] = DB::table('umkm')->where('id_umkm')->get();
+       
+        return view('/edit',$res);
+    }
+    public function update(Request $request)
+    {
+        DB::table('umkm')->where('id_umkm',$request->id_umkm)->update([
+            'nama_lengkap' => $request->nama_lengkap,
+            'email' => $request->email,
+            'no_telp' => $request->no_telp,
+            'nama_umkm' => $request->nama_umkm,
+            'jenis_umkm' => $request->jenis_umkm,
+            'desc' => $request->desc,
+            'provinsi' => $request->provinsi,
+            'kota' => $request->kota,
+            'kec' => $request->kec,
+            'kel' => $request->kel,
+            'detail' => $request->detail,
+            'latitude' => $request->lat,
+            'longitude' => $requet->lng
+        ]);
+        return redirect('/welcome');
     }
 }

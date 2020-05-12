@@ -21,4 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/welcome', 'HomeController@welcome')->name('welcome');
 Route::get('/tambah', 'HomeController@tambah')->name('tambah');
 
+Route::get('/edit', 'HomeController@edit')->name('edit');
+Route::post('/update', 'HomeController@update')->name('update');
+
 Route::get('/coba', 'HomeController@coba')->name('coba');

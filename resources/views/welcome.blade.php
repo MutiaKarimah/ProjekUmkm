@@ -28,7 +28,12 @@
                     <button type="button" class="btn btn-rounded btn-primary">
                         Daftarkan UMKM
                     </button>
-                </a>      
+                  </a>
+                  <a href="{{url('/edit')}}">
+                    <button type="button" class="btn btn-rounded btn-primary">
+                        Edit Detail
+                    </button>
+                  </a>       
             </div>
         </div>
     </div>
