@@ -14,7 +14,7 @@
                     @if (Route::has('login'))
                         <div class="top-right links">
                             @auth
-                                <a href="{{ url('/welcome') }}">Home</a>
+                                <a href="{{ url('/home') }}">Logout</a>
                             @else
                                 <div>
                                     <div class="dropdown dropdown-notification notif" >
@@ -31,7 +31,7 @@
                                                         <div class="dropdown-menu-notif-item">
                                                             <div class="row">
                                                                 {{-- <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label> --}}
-                                                                <div>
+                                                                    <div>
                                                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="email">
                                                                         @error('email')
                                                                             <span class="invalid-feedback" role="alert">
@@ -61,7 +61,9 @@
                                                                 <div class="form-group row mb-0">
                                                                     <div>
                                                                         <button type="submit" class="btn btn-inline btn-danger col-md-12 offset-md-2" style="width: 80%;">
-                                                                            {{ __('LOGIN') }}
+                                                                            <a href="{{url('/welcome')}}" type="button">
+                                                                                LOGIN
+                                                                            </a>
                                                                         </button>
                                                                         <div class="row">
                                                                             @if (Route::has('password.request'))

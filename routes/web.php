@@ -20,8 +20,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/welcome', 'HomeController@welcome')->name('welcome');
 Route::get('/tambah', 'HomeController@tambah')->name('tambah');
+Route::post('/tambah/store', 'HomeController@store');
+Route::get('/verif', 'HomeController@verif')->name('verif');
+Route::get('/sukses', 'HomeController@sukses')->name('sukses');
 
 Route::get('/edit', 'HomeController@edit')->name('edit');
 Route::post('/update', 'HomeController@update')->name('update');
 
 Route::get('/coba', 'HomeController@coba')->name('coba');
+
+//Route::get('/upload', 'HomeController@upload')->name('upload');
+//Route::post('/upload/proses', 'HomeController@proses_upload')->name('proses_upload');

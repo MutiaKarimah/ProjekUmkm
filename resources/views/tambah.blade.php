@@ -10,23 +10,34 @@
 
 @section('content')
 <div class="container-fluid">
-{{--     <section class="card">
-        <header class="card-header">
-            Pendaftaran UMKM
-            <a href="{{url('/invoices/index')}}" type="button" class="modal-close">
-                <i class="fa fa-chevron-left"></i> Kembali
-            </a>
-        </header>
-    </section>
- --}}
     <div class="card">
         <header class="card-header">
             Pendaftaran UMKM
         </header>                
         <div class="card-block">
-            @csrf
-        <form action="{{url('/tambah/store')}}" method="post">
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                    {{ $error }} <br/>
+                    @endforeach
+                </div>
+            @endif
+        <form action="{{url('/tambah/store')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
+            <div class="">
+                <div class="col-md-12">
+                    <div class="form-group row">
+                        <label class="col-sm-12 form-control-label m-t-1">
+                            <span class="red-color"></span>Id UMKM
+                        </label>
+                        <div class="">
+                            <p class="form-control-static">
+                                <input type="number" class="form-control" name="id_umkm" placeholder="id umkm">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="">
                 <div class="col-md-12">
                     <div class="form-group row">
@@ -203,7 +214,7 @@
                         <div class="">
                             <form class="col-md-8">
                                 <div class="form-group">
-                                    <input type="file" class="form-control-file" >
+                                    <input type="file" class="form-control-file" name="file1">
                                 </div>
                             </form>
                         </div>
@@ -220,7 +231,7 @@
                         <div class="col-sm-12">
                             <form class="col-md-8">
                                 <div class="form-group">
-                                    <input type="file" class="form-control-file" >
+                                    <input type="file" class="form-control-file" name="file2">
                                 </div>
                             </form>
                         </div>
@@ -235,7 +246,7 @@
                         <div class="col-sm-12">
                             <form class="col-md-8">
                                 <div class="form-group">
-                                    <input type="file" class="form-control-file" >
+                                    <input type="file" class="form-control-file" name="file3">
                                 </div>
                             </form> 
                         </div>
@@ -252,7 +263,7 @@
                         <div class="col-sm-12">
                             <form class="col-md-8">
                                 <div class="form-group">
-                                    <input type="file" class="form-control-file" >
+                                    <input type="file" class="form-control-file" name="file4">
                                 </div>
                             </form>
                         </div>
@@ -267,15 +278,20 @@
                         <div class="col-sm-12">
                             <form class="col-md-8">
                                 <div class="form-group">
-                                    <input type="file" class="form-control-file" >
+                                    <input type="file" class="form-control-file" name="file5">
                                 </div>
                             </form> 
                         </div>
                     </div>
                 </div>
             </div>
+            
             <left>
-                <button type="submit" class="btn btn-rounded btn-primary float-middle">Konfirmasi</button>
+                <button type="submit" class="btn btn-rounded btn-primary float-middle">
+                    <a href="{{url('/verif')}}" type="button">
+                        Konfirmasi
+                    </a>
+                </button>
                 <button type="cancel" class="btn btn-rounded btn-default float-middle">
                     <a href="{{url('/welcome')}}" type="button">
                         Kembali
@@ -285,6 +301,7 @@
         </div>
     </div>
 </form>   
+</form>
 @endsection
 
 @section('scripts')

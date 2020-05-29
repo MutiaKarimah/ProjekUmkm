@@ -42,7 +42,10 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
+        
+           // 'keterangan' => 'required',
         DB::table('umkm')->insert([
+            'id_umkm' => $request->id_umkm,
             'nama_lengkap' => $request->nama_lengkap,
             'email' => $request->email,
             'no_telp' => $request->no_telp,
@@ -54,10 +57,54 @@ class HomeController extends Controller
             'kec' => $request->kec,
             'kel' => $request->kel,
             'detail' => $request->detail,
-            'latitude' => $request->lat,
-            'longitude' => $requet->lng
+          //  'latitude' => $request->lat,
+            //'longitude' => $requet->lng
         ]);
-        return redirect('/welcome');
+        $this->validate($request, [
+            'file1' => '',
+            'file2' => '',
+            'file3' => '',
+            'file4' => '',
+            'file5' => '',
+        ]);
+
+        $file1 = $request->file('file1');
+        $file2 = $request->file('file2');
+        $file3 = $request->file('file3');
+        $file4 = $request->file('file4');
+        $file5 = $request->file('file5');
+
+                // nama file
+        echo 'File Name: '.$file1->getClientOriginalName();
+        echo '<br>';
+
+                // ekstensi file
+        echo 'File Extension: '.$file1->getClientOriginalExtension();
+        echo '<br>';
+        
+
+                // real path
+        echo 'File Real Path: '.$file1->getRealPath();
+        echo '<br>';
+        
+
+                // ukuran file
+        echo 'File Size: '.$file1->getSize();
+        echo '<br>';
+        
+
+                // tipe mime
+        echo 'File Mime Type: '.$file1->getMimeType();
+        
+
+                // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'data_file';
+
+                // upload file
+        $file1->move($tujuan_upload,$file1->getClientOriginalName());
+        
+        
+        return redirect('/verif');
 
     }
     public function edit()
@@ -85,5 +132,48 @@ class HomeController extends Controller
             'longitude' => $requet->lng
         ]);
         return redirect('/welcome');
+    }
+
+    public function proses_upload(Request $request){
+        $this->validate($request, [
+            'file' => 'required',
+            'keterangan' => 'required',
+        ]);
+
+        // menyimpan data file yang diupload ke variabel $file
+        $file = $request->file('file');
+
+                // nama file
+        echo 'File Name: '.$file->getClientOriginalName();
+        echo '<br>';
+
+                // ekstensi file
+        echo 'File Extension: '.$file->getClientOriginalExtension();
+        echo '<br>';
+
+                // real path
+        echo 'File Real Path: '.$file->getRealPath();
+        echo '<br>';
+
+                // ukuran file
+        echo 'File Size: '.$file->getSize();
+        echo '<br>';
+
+                // tipe mime
+        echo 'File Mime Type: '.$file->getMimeType();
+
+                // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'data_file';
+
+                // upload file
+        $file->move($tujuan_upload,$file->getClientOriginalName());
+    }
+    public function verif()
+    {
+        return view('verif');
+    }
+    public function sukses()
+    {
+        return view('sukses');
     }
 }

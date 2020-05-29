@@ -1,9 +1,9 @@
 @extends('layouts.default')
 
 @section('content')
-<div class="container">
+<center class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 offset-md-2">
             <div class="card alert-info">
                 <div class="col-md-6 offset-md-3 card-header">
                     Daftar Akun
@@ -74,5 +74,5 @@
             </div>
         </div>
     </div>
-</div>
+</center>
 @endsection
